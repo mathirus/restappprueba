@@ -27,7 +27,7 @@ export default function HomePage() {
 
   return (
     <Container>
-      <header className="sticky top-0 bg-white z-10 flex items-center gap-2 py-2">
+      <header className="sticky top-0 bg-primary text-white z-10 flex items-center gap-2 py-2">
         <span className="font-bold text-xl">LOGO</span>
         <input className="flex-1 border px-2 py-1 rounded-xl" placeholder="Buscar" />
       </header>
