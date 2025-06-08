@@ -1,25 +1,28 @@
 'use client'
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useCartStore } from '@/lib/store'
 import { Container } from '@/components/ui/container'
 import { Button } from '@/components/ui/button'
-
-const categories = [
-  { id: 1, name: 'Entradas' },
-  { id: 2, name: 'Platos' },
-  { id: 3, name: 'Postres' },
-]
-
-const items = [
-  { id: 1, cat: 1, name: 'Bruschetta', desc: 'Pan tostado con tomate', price: 5 },
-  { id: 2, cat: 2, name: 'Pizza', desc: 'Muzza clásica', price: 10 },
-  { id: 3, cat: 3, name: 'Helado', desc: 'Chocolate', price: 4, outOfStock: true },
-]
+import type { MenuCategory, MenuItem } from '@/data/menu'
+const fetchMenu = async () => {
+  const res = await fetch('/api/menu')
+  if (!res.ok) throw new Error('Error')
+  return res.json() as Promise<{ categories: MenuCategory[]; items: MenuItem[] }>
+}
 
 export default function HomePage() {
   const cart = useCartStore()
   const sectionRefs = useRef<(HTMLLIElement | null)[]>([])
+  const [categories, setCategories] = useState<MenuCategory[]>([])
+  const [items, setItems] = useState<MenuItem[]>([])
+
+  useEffect(() => {
+    fetchMenu().then((m) => {
+      setCategories(m.categories)
+      setItems(m.items)
+    })
+  }, [])
 
   const scrollTo = (idx: number) => {
     sectionRefs.current[idx]?.scrollIntoView({ behavior: 'smooth' })
@@ -45,12 +48,12 @@ export default function HomePage() {
             }}
           >
             <h2 className="text-xl font-bold my-2" id={cat.name}>{cat.name}</h2>
-            {items.filter((i) => i.cat === cat.id).map((item) => (
+            {items.filter((i) => i.categoryId === cat.id).map((item) => (
               <div key={item.id} className="card shadow-md flex-row items-center gap-4 p-4 mb-4">
-                <div className="w-16 h-16 bg-gray-200 rounded-xl" />
+                <img src={item.image} alt="" className="w-16 h-16 rounded-xl object-cover" />
                 <div className="flex-1">
                   <h3 className="font-semibold">{item.name}</h3>
-                  <p className="text-sm line-clamp-2">{item.desc}</p>
+                  <p className="text-sm line-clamp-2">{item.description}</p>
                   <p className="font-bold mt-1">${item.price}</p>
                   {item.outOfStock && <span className="badge badge-error">Sin stock</span>}
                 </div>

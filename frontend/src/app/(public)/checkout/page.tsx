@@ -19,7 +19,10 @@ export default function CheckoutPage() {
     <Container>
       <h1 className="text-xl font-bold mb-4">Checkout</h1>
       <div className="space-y-4">
-        <input className="input input-bordered w-full" placeholder="Nombre" value={name} onChange={(e) => setName(e.target.value)} />
+        <label className="form-control w-full">
+          <span className="label-text mb-1">Nombre</span>
+          <input className="input input-bordered w-full" value={name} onChange={(e) => setName(e.target.value)} />
+        </label>
         <Button className="w-full" onClick={pay}>Pagar con MercadoPago</Button>
       </div>
     </Container>
