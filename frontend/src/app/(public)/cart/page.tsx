@@ -10,7 +10,7 @@ export default function CartPage() {
 
   return (
     <Container>
-      <header className="flex justify-between items-center mb-4">
+      <header className="bg-primary text-white flex justify-between items-center mb-4 p-2">
         <h1 className="text-xl font-bold">Tu pedido</h1>
         <Link href="/home" className="text-primary">Seguir comprando</Link>
       </header>
