@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { Button } from '@/components/ui/button'
 
 export default function SplashPage() {
   const router = useRouter()
@@ -25,7 +26,7 @@ export default function SplashPage() {
       {error && (
         <div className="mt-4 bg-white text-secondary p-4 rounded-xl">
           <p>Hubo un problema</p>
-          <button className="mt-2 px-4 py-2 bg-primary text-white rounded-xl" onClick={() => router.refresh()}>Reintentar</button>
+          <Button className="mt-2" onClick={() => router.refresh()}>Reintentar</Button>
         </div>
       )}
     </div>
