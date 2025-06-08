@@ -21,7 +21,9 @@ function Content() {
   return (
     <Container className="text-center">
       <div className="text-5xl mb-4">{status === 'approved' ? '✔️' : status === 'pending' ? '⏳' : '❌'}</div>
-      <p className="mb-2">Pago {status}</p>
+      <div className="alert shadow-sm mb-4">
+        <span>Pago {status}</span>
+      </div>
       <p>Ref: {ref}</p>
       {status === 'approved' ? (
         <Link href="/tracker" className="mt-4 inline-block">

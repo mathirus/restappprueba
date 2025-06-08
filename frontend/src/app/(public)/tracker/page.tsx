@@ -16,12 +16,12 @@ export default function TrackerPage() {
   return (
     <Container>
       <h1 className="text-xl font-bold mb-4">Estado del pedido</h1>
-      <ol className="space-y-4">
+      <ul className="steps steps-vertical w-full">
         {steps.map((label, idx) => (
-          <li key={label} className={idx === step ? 'animate-pulse' : ''}>{label}</li>
+          <li key={label} className={`step ${idx <= step ? 'step-primary' : ''}`}>{label}</li>
         ))}
-      </ol>
-      <Button className="mt-8 border" onClick={() => alert('Mozo llamado')}>Llamar al mozo</Button>
+      </ul>
+      <Button className="mt-8" onClick={() => alert('Mozo llamado')}>Llamar al mozo</Button>
     </Container>
   )
 }

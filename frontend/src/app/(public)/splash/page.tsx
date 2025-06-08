@@ -19,14 +19,14 @@ export default function SplashPage() {
   }, [router])
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-primary text-white p-8">
+    <div className="flex flex-col items-center justify-center min-h-screen gap-4 bg-primary text-primary-content p-8">
       <span className="text-3xl font-bold">LOGO</span>
-      <div className="mt-4 animate-spin h-8 w-8 border-4 border-white border-t-transparent rounded-full"></div>
-      <p className="mt-2">Estamos preparando tu menú…</p>
+      <span className="loading loading-spinner loading-lg" />
+      <p>Estamos preparando tu menú…</p>
       {error && (
-        <div className="mt-4 bg-white text-secondary p-4 rounded-xl">
-          <p>Hubo un problema</p>
-          <Button className="mt-2" onClick={() => router.refresh()}>Reintentar</Button>
+        <div className="alert alert-error text-white mt-4">
+          <span>Hubo un problema</span>
+          <Button className="ml-2" onClick={() => router.refresh()}>Reintentar</Button>
         </div>
       )}
     </div>
