@@ -14,7 +14,6 @@ Este es un backend sencillo en Express que implementa algunas rutas básicas par
    ```bash
    npm install
    npm --prefix frontend install
-=======
    ```
 5. Iniciar el servidor:
    ```bash
@@ -28,7 +27,6 @@ El directorio `frontend/` contiene una aplicación Next.js 14 con Tailwind. Para
 npm --prefix frontend run dev
 ```
 
-=======
 El servidor escuchará en el puerto definido en `.env` (por defecto 3000).
 
 ## Endpoints principales
@@ -41,6 +39,4 @@ El servidor escuchará en el puerto definido en `.env` (por defecto 3000).
 Este proyecto es solo un punto de partida para un MVP y puede ser ampliado según las necesidades.
 
 ## Imágenes
-Se retiraron íconos e imágenes para evitar binarios en el repositorio. Las vistas
-emplean cuadros de color como marcadores de posición.
-=======
+Se retiraron íconos e imágenes para evitar binarios en el repositorio. Las vistas emplean cuadros de color como marcadores de posición.
