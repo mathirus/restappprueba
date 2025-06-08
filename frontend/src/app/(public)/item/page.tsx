@@ -15,7 +15,7 @@ export default function ItemPage() {
 
   return (
     <Container className="fixed inset-0 bg-white overflow-y-auto">
-      <button className="mb-2" onClick={() => history.back()}>Cerrar</button>
+      <button className="btn btn-ghost mb-2" onClick={() => history.back()}>Cerrar</button>
       <div className="keen-slider">
         <div className="w-full h-40 bg-gray-200 rounded-2xl" />
       </div>
@@ -24,13 +24,13 @@ export default function ItemPage() {
           <h3 className="font-semibold mb-2">{group}</h3>
           <div className="flex gap-2">
             {options.map((op) => (
-              <button key={op} className="border px-2 py-1 rounded-xl">{op}</button>
+              <button key={op} className="btn btn-sm btn-outline">{op}</button>
             ))}
           </div>
         </div>
       ))}
-      <input type="number" className="border mt-4" value={qty} onChange={(e) => setQty(parseInt(e.target.value))} />
-      <textarea className="w-full border rounded-xl mt-2" placeholder="Notas para la cocina" />
+      <input type="number" className="input input-bordered mt-4" value={qty} onChange={(e) => setQty(parseInt(e.target.value))} />
+      <textarea className="textarea textarea-bordered w-full mt-2" placeholder="Notas para la cocina" />
       <Button className="w-full mt-4" onClick={() => cart.addItem({ id: 99, name: 'Plato', price: 10, quantity: qty })}>Agregar al carrito</Button>
     </Container>
   )

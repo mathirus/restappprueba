@@ -10,9 +10,9 @@ export default function CartPage() {
 
   return (
     <Container>
-      <header className="bg-primary text-white flex justify-between items-center mb-4 p-2">
-        <h1 className="text-xl font-bold">Tu pedido</h1>
-        <Link href="/home" className="text-primary">Seguir comprando</Link>
+      <header className="navbar bg-primary text-primary-content mb-4 rounded-box">
+        <h1 className="flex-1 text-xl font-bold">Tu pedido</h1>
+        <Link href="/home" className="btn btn-ghost btn-sm">Seguir comprando</Link>
       </header>
       <ul className="space-y-2">
         {cart.items.map((item) => (
@@ -22,7 +22,7 @@ export default function CartPage() {
           </li>
         ))}
       </ul>
-      <div className="mt-4 p-4 border rounded-2xl sticky bottom-0 bg-white">
+      <div className="card bg-base-200 mt-4 p-4 sticky bottom-0">
         <p>Subtotal: ${subtotal}</p>
         <p>Propina: 0%</p>
         <p className="font-bold">Total: ${subtotal}</p>
