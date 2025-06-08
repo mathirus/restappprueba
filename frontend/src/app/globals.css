@@ -17,4 +17,16 @@
 body {
   background: var(--background);
   color: var(--foreground);
+  font-family: var(--font-geist-sans);
+  background-image: linear-gradient(to bottom right, var(--background), #f7f7f7);
+  min-height: 100vh;
+}
+
+@layer components {
+  .container-app {
+    @apply mx-auto max-w-[430px] p-4;
+  }
+  .btn-primary {
+    @apply rounded-xl2 bg-primary text-white px-4 py-2 transition-colors hover:bg-primary/90 disabled:opacity-50;
+  }
 }

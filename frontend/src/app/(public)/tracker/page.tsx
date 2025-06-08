@@ -1,5 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
+import { Container } from '@/components/ui/container'
+import { Button } from '@/components/ui/button'
 
 const steps = ['En cocina', 'Listo para retirar', 'Servido']
 
@@ -12,14 +14,14 @@ export default function TrackerPage() {
   }, [])
 
   return (
-    <div className="p-4 max-w-[430px] mx-auto">
+    <Container>
       <h1 className="text-xl font-bold mb-4">Estado del pedido</h1>
       <ol className="space-y-4">
         {steps.map((label, idx) => (
           <li key={label} className={idx === step ? 'animate-pulse' : ''}>{label}</li>
         ))}
       </ol>
-      <button className="mt-8 border rounded-2xl px-4 py-2" onClick={() => alert('Mozo llamado')}>Llamar al mozo</button>
-    </div>
+      <Button className="mt-8 border" onClick={() => alert('Mozo llamado')}>Llamar al mozo</Button>
+    </Container>
   )
 }

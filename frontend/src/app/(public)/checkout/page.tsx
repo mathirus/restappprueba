@@ -2,6 +2,8 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useCartStore } from '@/lib/store'
+import { Container } from '@/components/ui/container'
+import { Button } from '@/components/ui/button'
 
 export default function CheckoutPage() {
   const router = useRouter()
@@ -14,12 +16,12 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="p-4 max-w-[430px] mx-auto">
+    <Container>
       <h1 className="text-xl font-bold mb-4">Checkout</h1>
       <div className="space-y-4">
         <input className="w-full border p-2 rounded-xl" placeholder="Nombre" value={name} onChange={(e) => setName(e.target.value)} />
-        <button onClick={pay} className="w-full bg-primary text-white py-2 rounded-2xl">Pagar con MercadoPago</button>
+        <Button className="w-full" onClick={pay}>Pagar con MercadoPago</Button>
       </div>
-    </div>
+    </Container>
   )
 }

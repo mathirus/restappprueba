@@ -1,6 +1,8 @@
 'use client'
 import { useState } from 'react'
 import { useCartStore } from '@/lib/store'
+import { Container } from '@/components/ui/container'
+import { Button } from '@/components/ui/button'
 
 const modifiers = {
   Porción: ['Media', 'Entera'],
@@ -12,7 +14,7 @@ export default function ItemPage() {
   const cart = useCartStore()
 
   return (
-    <div className="fixed inset-0 bg-white p-4 overflow-y-auto">
+    <Container className="fixed inset-0 bg-white overflow-y-auto">
       <button className="mb-2" onClick={() => history.back()}>Cerrar</button>
       <div className="keen-slider">
         <div className="w-full h-40 bg-gray-200 rounded-2xl" />
@@ -29,7 +31,7 @@ export default function ItemPage() {
       ))}
       <input type="number" className="border mt-4" value={qty} onChange={(e) => setQty(parseInt(e.target.value))} />
       <textarea className="w-full border rounded-xl mt-2" placeholder="Notas para la cocina" />
-      <button className="w-full mt-4 bg-primary text-white p-3 rounded-2xl" onClick={() => cart.addItem({ id: 99, name: 'Plato', price: 10, quantity: qty })}>Agregar al carrito</button>
-    </div>
+      <Button className="w-full mt-4" onClick={() => cart.addItem({ id: 99, name: 'Plato', price: 10, quantity: qty })}>Agregar al carrito</Button>
+    </Container>
   )
 }

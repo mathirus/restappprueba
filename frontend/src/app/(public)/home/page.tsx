@@ -2,6 +2,8 @@
 import { useRef } from 'react'
 import Link from 'next/link'
 import { useCartStore } from '@/lib/store'
+import { Container } from '@/components/ui/container'
+import { Button } from '@/components/ui/button'
 
 const categories = [
   { id: 1, name: 'Entradas' },
@@ -24,7 +26,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="p-4 max-w-[430px] mx-auto">
+    <Container>
       <header className="sticky top-0 bg-white z-10 flex items-center gap-2 py-2">
         <span className="font-bold text-xl">LOGO</span>
         <input className="flex-1 border px-2 py-1 rounded-xl" placeholder="Buscar" />
@@ -52,7 +54,7 @@ export default function HomePage() {
                   <p className="font-bold mt-1">${item.price}</p>
                   {item.outOfStock && <span className="text-red-500">Sin stock</span>}
                 </div>
-                <button className="bg-primary text-white px-2 py-1 rounded-xl" onClick={() => cart.addItem({ id: item.id, name: item.name, price: item.price, quantity:1 })}>+</button>
+                <Button className="px-2 py-1" onClick={() => cart.addItem({ id: item.id, name: item.name, price: item.price, quantity:1 })}>+</Button>
               </div>
             ))}
           </li>
@@ -61,6 +63,6 @@ export default function HomePage() {
       <Link href="/cart" className="fixed bottom-4 right-4 bg-primary text-white p-4 rounded-full shadow-lg">
         🛒 {cart.items.length}
       </Link>
-    </div>
+    </Container>
   )
 }
